@@ -1,3 +1,12 @@
-# titre 1
-## titre 2
-texte simple
+Documentation de capitalisation expérience
+Documentation utilisateur avec Jekyll
+Compiler un code java.
+Versionner avec Git
+Ecrire une appli tomcat minimale
+Tester avec JUnit
+Documentation programmeur ?
+Mavenification
+Qualimetrie avec SonarQube
+Intégration continue avec Jenkins
+Conteneuriser avec docker
+Déploiement continue
