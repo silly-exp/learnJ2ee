@@ -1,5 +1,11 @@
 # Documentation utilisateur
 
-Pour être honnête, pour le moment ce projet ne fait rien. Par contre notez qu'il ne présente aucun bug!
+http://localhost:8080/nico/Hello
+Affiche un helloWorld
 
-**Remarque du jour:** Aucun utilisateur + aucune fonctionalité = aucun bug!
+GET http://localhost:8080/nico/Node?NodeId=1
+Récupère un contenu du node 1
+
+POST http://localhost:8080/nico/Node?NodeContent="content"
+Insère un le contenu dans un nouveau node et retour l'id du node. 
+

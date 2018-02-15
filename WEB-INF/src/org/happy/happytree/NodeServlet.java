@@ -19,8 +19,9 @@ public class NodeServlet extends HttpServlet{
 
 //------------------------------------------------------------------------------
 	public void NodeServlet(){
-		System.out.println("NodeServletConstructor");
-		this.nodeStore = NodeStoreFactory.getStore();
+		//System.out.println("NodeServletConstructor");
+		//this.nodeStore = NodeStoreFactory.getStore();
+		this.nodeStore = new TestNodeStore();
 		System.out.println(this.nodeStore.toString());
 	}
 
@@ -43,7 +44,7 @@ public class NodeServlet extends HttpServlet{
 		}
 		response.setContentType("application/json"); //FIXME check that this typemime is correct.
 		PrintWriter out = response.getWriter();
-		out.println(nodeContent);
+		out.println(nodeContent); // FIXME: faire un vrai json...
 		out.close();
 	}
 //------------------------------------------------------------------------------
@@ -51,7 +52,7 @@ public class NodeServlet extends HttpServlet{
 	 * @param in request:
 	   nodeContent : the content of the node to create.
 	   Si nodeContent n'est pas fourni, return 404 FIXME: voir les bonnes pratiques
-	   @return: the nodeId created for thi new node.
+	   @return: the nodeId created for this new node.
 	*/
 	protected void doPost(HttpServletRequest request,
 	                     HttpServletResponse response)
@@ -60,11 +61,11 @@ public class NodeServlet extends HttpServlet{
 		// FIXME: contrôle des paramètres à faire
 		String nodeContent="contenu du node alpha";
 
-		String nodeId = this.nodeStore.put(nodeContent);
+		String nodeId = this.nodeStore.put(nodeContent); //FIXME controler le retour ok
 		// si oui on stocke le nouveau noeud
 		response.setContentType("application/json"); //FIXME check that this typemime is correct.
 		PrintWriter out = response.getWriter();
-		out.println("nodeId:" + nodeId.toString()); //FIXME syntaxe json à corriger
+		out.println("nodeId:" + nodeId); //FIXME syntaxe json à corriger
 		out.close();
 	}
 }
