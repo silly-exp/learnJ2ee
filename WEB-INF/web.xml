@@ -9,10 +9,20 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j
 		  org.happy.happytree.HelloWorld
 		</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>NodeServlet</servlet-name>
+		<servlet-class>
+		  org.happy.happytree.NodeServlet
+		</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>HelloWorld</servlet-name>
-		<url-pattern>/HelloWorld</url-pattern>
+		<servlet-name>NodeServlet</servlet-name>
+		<url-pattern>/Node</url-pattern>
 	</servlet-mapping>
- 
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/Hello</url-pattern>
+	</servlet-mapping>
+
 </web-app>
