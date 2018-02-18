@@ -1,7 +1,28 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>
+		  org.happy.happytree.HelloWorld
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NodeServlet</servlet-name>
+		<servlet-class>
+		  org.happy.happytree.NodeServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>NodeServlet</servlet-name>
+		<url-pattern>/Node</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/Hello</url-pattern>
+	</servlet-mapping>
+
 </web-app>
