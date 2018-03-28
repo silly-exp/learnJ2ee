@@ -17,7 +17,7 @@ public class HelloWorld extends HttpServlet{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		out.println("<h1>Hello World using HttpServlet class.</h1>");
+		out.println("<h1>Hello Nico using HttpServlet class.</h1>");
 		out.close();
 	}
 }

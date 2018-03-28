@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.util.Map;
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 /** this servlet is responsible for the Node CRUD
 */
 public class NodeServlet extends HttpServlet{
 
-	NodeStore nodeStore;
+	NodeStore nodeStore = new TestNodeStore();
+    private static final Logger LOGGER = LogManager.getLogger(NodeServlet.class.getName());
 
-//------------------------------------------------------------------------------
-	public void NodeServlet(){
-		//System.out.println("NodeServletConstructor");
-		//this.nodeStore = NodeStoreFactory.getStore();
-		this.nodeStore = new TestNodeStore();
-		System.out.println(this.nodeStore.toString());
-	}
 
 //------------------------------------------------------------------------------
 	/** get an existing Node
@@ -35,14 +34,23 @@ public class NodeServlet extends HttpServlet{
 	                     HttpServletResponse response)
 	               throws ServletException, IOException{
 
-		// FIXME: recupérer et controler les paramètres
-		// si non => 404
-		String nodeId = "alpha";
+		// FIXME: controler vraiment les paramètres
+
+	    String nodeId = (String) request.getParameter("nodeId");
+		if (nodeId == null) {
+			LOGGER.debug("pas de nodeId passé");
+			response.setStatus(404);
+			return;
+		}
 		String nodeContent = this.nodeStore.get(nodeId);
 		if (nodeContent == null){
-			// FIXME: return 404
+			LOGGER.debug("nodeId sans réponse:" +nodeId);
+			response.setStatus(404);
+			return;
 		}
-		response.setContentType("application/json"); //FIXME check that this typemime is correct.
+		LOGGER.debug("nodeId avec reponse:" +nodeId + "=>"+ nodeContent);
+		response.setContentType("application/json"); 
+		response.setStatus(200);
 		PrintWriter out = response.getWriter();
 		out.println(nodeContent); // FIXME: faire un vrai json...
 		out.close();

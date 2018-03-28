@@ -11,5 +11,4 @@
 #rm -fr javadoc
 #mkdir javadoc
 #javadoc -cp ".:/usr/share/java/*" $rootDir/WEB-INF/src/org/happy/happytree/* -d javadoc
-
-mvn package
+mvn clean package
